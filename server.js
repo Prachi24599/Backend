@@ -9,3 +9,8 @@
 //Server Instantiate
 const express = require('express');
 const app = express();
+
+//activate server on 3000 port
+app.listen(5000, () => {
+    console.log("Server started at port no. 5000")
+})
