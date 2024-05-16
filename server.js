@@ -14,3 +14,15 @@ const app = express();
 app.listen(5000, () => {
     console.log("Server started at port no. 5000")
 })
+
+//Routes
+app.get('/', (request, response) => {
+    response.send("Hello Beckend Dev!")
+})
+
+app.post('/api/cars', (request, response) => {
+    const {name, brand} = request.body;
+    console.log(name);
+    console.log(brand);
+    response.send("Car submitted successfully!");
+})
