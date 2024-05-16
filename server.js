@@ -5,3 +5,7 @@
 // 5. npm i express
 // 6. create server.js
 // 7. RUN - node server.js
+
+//Server Instantiate
+const express = require('express');
+const app = express();
