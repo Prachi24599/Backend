@@ -1,5 +1,5 @@
 import express from express;
-import router from express.router;
+import router from express.Router();
 //Import Controller
 import createTodo from "../controllers/createTodo";
 
