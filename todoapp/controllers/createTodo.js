@@ -2,7 +2,7 @@
 import Todo from "../models/Todo"
 
 //Define route handler
-exports.createTodo = async(req, res) => {
+const createTodo = async(req, res) => {
     try{
         //extract title and description from request body
         const {title, description} = req.body;
@@ -27,3 +27,6 @@ exports.createTodo = async(req, res) => {
         })
     }
 }   
+
+// Export the createTodo function
+export default createTodo;

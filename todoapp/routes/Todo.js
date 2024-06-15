@@ -1,7 +1,9 @@
-import express from express;
-import router from express.Router();
+import express from 'express';
+const router = express.Router();
 //Import Controller
-import createTodo from "../controllers/createTodo";
+import createTodo from "../controllers/createTodo.js";
 
 //define API routes
 router.post("/createTodo", createTodo); 
+
+export default router;
