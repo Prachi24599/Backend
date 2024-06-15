@@ -1,5 +1,5 @@
 //import the model
-import Todo from "../models/Todo"
+import Todo from "../models/Todo.js"
 
 //Define route handler
 const createTodo = async(req, res) => {
