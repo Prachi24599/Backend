@@ -12,6 +12,7 @@ const PORT = process.env.PORT || 4000;
 app.use(express.json());
 
 // Mount the todo API routes
+// We can define the directory structure before our routes 
 app.use('/api/v1', todoRoutes);
 
 // Connect to the database
