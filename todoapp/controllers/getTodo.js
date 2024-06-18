@@ -57,4 +57,4 @@ const getTodoById = async (req, res) => {
 }
 
 // Export the getTodo function
-export default {getTodo, getTodoById};
+export {getTodo, getTodoById};
