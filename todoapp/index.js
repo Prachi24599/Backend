@@ -18,7 +18,6 @@ app.use('/api/v1', todoRoutes);
 // Connect to the database
 dbConnect();
 
-
 // Default route
 app.get('/', (req, res) => {
     res.send('<h1>This is the Homepage!</h1>');
