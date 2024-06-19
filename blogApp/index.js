@@ -9,6 +9,9 @@ app.listen(PORT, () => {
     console.log(`App is running on port ${PORT}`);
 })
 
+//middleware
+app.use(express.json());
+
 app.get("/", (req, res) => {
     res.send('<h1>This is the Homepage!</h1>');
 })
