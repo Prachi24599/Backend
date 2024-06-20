@@ -19,4 +19,18 @@ const createPost = async (req, res) => {
     }
 }
 
-export default createPost;
+const getAllPosts = async (req, res) => {
+    try{
+        const posts = await Post.find().populate("likes").populate("comments").exec();
+        res.json({
+            posts
+        })
+    }catch(error){
+        res.status(500).json({
+            success : false,
+            message : "Issue in creating post"
+        })
+    }
+}
+
+export {createPost, getAllPosts};
