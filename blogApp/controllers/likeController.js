@@ -32,7 +32,7 @@ const unlikePost = async (req, res) => {
         const deletedLike = await Like.findOneAndDelete({post : post, _id : like});
 
         //update the like array in post collection
-        const updatedPost = await Post.findByIdAndDelet(post, {$pull : {likes : deletedLike._id}}, {new : true}).populate("likes").exec();
+        const updatedPost = await Post.findByIdAndUpdate(post, {$pull : {likes : deletedLike._id}}, {new : true}).populate("likes").exec();
 
         res.status(200).json({
             success : true,
