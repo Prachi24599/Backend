@@ -1,5 +1,5 @@
-import Like from "../models/likeModel"
-import Post from "../models/postModel"
+import Like from "../models/likeModel.js"
+import Post from "../models/postModel.js"
 
 const likePost = async (req, res) => {
     try{
