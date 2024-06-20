@@ -31,3 +31,20 @@ const createComment = async (req, res) => {
         })
     }
 }
+
+const getAllComments = async (req, res) => {
+    try{
+        const comments = await Comment.find({});
+        res.status(200).json({
+            success : true,
+            data : comments,
+            message : "Data is fetched successfully."
+        })
+    } catch {
+        return res.status(500).json({
+            error : "Error while fetching data"
+        })
+    }
+}
+
+export {createComment, getAllComments};
