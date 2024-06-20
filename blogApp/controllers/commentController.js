@@ -11,7 +11,7 @@ const createComment = async (req, res) => {
         const comment = new Comment({post, user, body})
 
         //save the new comment into database
-        const savedComment = comment.save();
+        const savedComment = await comment.save();
 
         //find the post by ID, add a new comment to it's array
         //post - search by post id in findByIdAndUpdate 
