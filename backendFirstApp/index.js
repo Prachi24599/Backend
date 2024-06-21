@@ -9,3 +9,11 @@ app.listen(port, () => {
 //middleware - It is used to log incoming request, authenticate, parse data, error handing
 // express.json() - parse json data
 app.use(express.json())
+
+app.get("/", (req, res) => {
+    res.send("This is Homepage.");
+})
+
+app.post("/cars", (req, res) => {
+    res.send("This is post req")
+})
