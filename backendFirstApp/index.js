@@ -14,6 +14,7 @@ app.get("/", (req, res) => {
     res.send("This is Homepage.");
 })
 
+//post request are testing using postman
 app.post("/cars", (req, res) => {
     res.send("This is post req")
 })
