@@ -21,5 +21,6 @@ const commentSchema = new mongoose.Schema({
     }
 })
 
+//Model is like a class which contains the properties and behaviour
 const Comment = mongoose.model("Comment", commentSchema);
 export default Comment;
