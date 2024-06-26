@@ -25,6 +25,7 @@ const todoSchema = new mongoose.Schema(
     }
 )
 
+//When we export the schema, It is class which contains properties and objects
 // module.exports = mongoose.model("Todo", todoSchema);
 const Todo = mongoose.model('Todo', todoSchema);
 export default Todo;
