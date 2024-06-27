@@ -24,3 +24,9 @@ const commentSchema = new mongoose.Schema({
 //Model is like a class which contains the properties and behaviour
 const Comment = mongoose.model("Comment", commentSchema);
 export default Comment;
+
+//Different ways to export
+// module.exports = myObject;
+// module.exports = myFunction;
+//To export multiple functions
+// exports.myFunction1 = myFunction1; exports.myFunction2 = myFunction2;
