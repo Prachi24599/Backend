@@ -26,7 +26,22 @@ const signUp = async (req, res) => {
                 message : "Error in hashing password"
             });
         }
-    }catch(error){
 
+        //Create entry for user
+        const user = await User.create({
+            name, email, password : hashedPassword, role
+        })
+
+        return res.status(200).json({
+            success : true,
+            data : user,
+            message : "User created successfully!"
+        })
+    }catch(error){
+        console.error(error);
+        return res.status(500).json({
+            success : false,
+            message : "User cannot be registered, Please try again later"
+        })
     }
 }
