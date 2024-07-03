@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
-import connect from "./config/database";
-import router from "./routes/user";
+import connect from "./config/database.js";
+import router from "./routes/user.js";
 
 dotenv.config();
 const app = express();
@@ -14,6 +14,6 @@ app.listen(PORT, () => {
 })
 
 //connect to database
-connect();
+// connect();
 
 app.use("/api/v1", router);
