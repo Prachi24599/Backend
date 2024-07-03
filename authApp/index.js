@@ -14,6 +14,6 @@ app.listen(PORT, () => {
 })
 
 //connect to database
-// connect();
+connect();
 
 app.use("/api/v1", router);
