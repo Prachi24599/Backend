@@ -45,4 +45,40 @@ const signUp = async (req, res) => {
         })
     }
 }
-export default signUp;
+
+const login = async (req, res) => {
+    try{
+        //data fetch
+        const {email, password} = req.body;
+        //validation on email and password
+        if(!email || !password) {
+            return res.status(400).json({
+                success : false,
+                message : "Please fill all the details carefully"
+            })
+        }
+        //check for registered user
+        const user = await User.findOne({email});
+        //If not registered user
+        if(!user){
+            return res.status(401).json({
+                success : false,
+                password : "User is not registered"
+            })
+        }
+
+        //verify password and generate a JWT token
+        if(await bcrypt.compare(password, user?.password)){
+
+        }else {
+            //passwords do not match
+            return res.status(403).json({
+                success : false,
+                password : "Passwords Incorrect"
+            })
+        }
+    }catch{
+
+    }
+}
+export {signUp, login};
