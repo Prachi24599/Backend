@@ -77,9 +77,24 @@ const login = async (req, res) => {
         //verify password and generate a JWT token
         if(await bcrypt.compare(password, user?.password)){
             //password match
-            let token = jwt.sign(payload, process.env.JWT_SECRET, {expiresIn : "2h"}); 
+            //create jwt token
+            let token = jwt.sign(payload, process.env.JWT_SECRET, {expiresIn : '2h'}); 
             user.token = token;
+            //we dont need to send password to user so making it undefined in object
             user.password = undefined;
+
+            //send the jwt token through cookie to client
+            const options = {
+                expires : new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
+                httpOnly : true
+            }
+            //sending cookie to client
+            res.cookie("token", token, options).status(200).json({
+                success : true,
+                token,
+                user,
+                message : "User logged in successfully"
+            })
         }else {
             //passwords do not match
             return res.status(403).json({
@@ -89,8 +104,12 @@ const login = async (req, res) => {
         }
 
 
-    }catch{
-
+    }catch(error){
+        console.log(error);
+        return res.status(500).json({
+            success : false,
+            message : "login failure"
+        })
     }
 }
 export {signUp, login};
