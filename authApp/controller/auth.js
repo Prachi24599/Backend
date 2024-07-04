@@ -61,7 +61,7 @@ const login = async (req, res) => {
             })
         }
         //check for registered user
-        const user = await User.findOne({email});
+        let user = await User.findOne({email});
         //If not registered user
         if(!user){
             return res.status(401).json({
@@ -79,6 +79,7 @@ const login = async (req, res) => {
             //password match
             //create jwt token
             let token = jwt.sign(payload, process.env.JWT_SECRET, {expiresIn : '2h'}); 
+            user = user.toObject();
             user.token = token;
             //we dont need to send password to user so making it undefined in object
             user.password = undefined;
