@@ -36,4 +36,21 @@ const auth = (req, res, next) => {
     }
 }
 
-export default auth;
+const isStudent = (req, res, next) => {
+    try{
+        if(req.body.token !== "Student"){
+            return res.status(401).json({
+                success : false,
+                message : "This is a protected route for students"
+            })
+        } 
+        next();  
+    }catch(error){
+        return res.status(500).json({
+            success : false,
+            message : "User role is not matching"
+        })
+    }   
+}
+
+export {auth, isStudent};
