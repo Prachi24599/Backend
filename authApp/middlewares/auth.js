@@ -53,4 +53,21 @@ const isStudent = (req, res, next) => {
     }   
 }
 
-export {auth, isStudent};
+const isAdmin = (req, res, next) => {
+    try{
+        if(req.body.token !== "Admin"){
+            return res.status(401).json({
+                success : false,
+                message : "This is a protected route for admin"
+            })
+        } 
+        next();  
+    }catch(error){
+        return res.status(500).json({
+            success : false,
+            message : "User role is not matching"
+        })
+    }   
+}
+
+export {auth, isStudent, isAdmin};
