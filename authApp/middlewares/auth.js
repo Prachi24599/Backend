@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 dotenv.config();
 
+//middleware invokes by stopping the request in between
 const auth = (req, res, next) => {
     try{
         //Extract JWT tokem
@@ -18,7 +19,7 @@ const auth = (req, res, next) => {
 
         //Verify the token
         try{
-            const decode = jwt.verify(process.env.JWT_SECRET);
+            const decode = jwt.verify(token, process.env.JWT_SECRET);
             console.log(decode);
             req.user = decode;
         }catch(error){
